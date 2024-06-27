@@ -1,12 +1,11 @@
 package ru.netology.data;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
+
 import com.github.javafaker.Faker;
-import io.qameta.allure.selenide.AllureSelenide;
+
 import lombok.Value;
 import lombok.val;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,15 +13,6 @@ import java.util.Locale;
 import java.util.Random;
 
 public class DataGenerator {
-    @BeforeAll
-    static void setUpAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
-
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
-    }
 
     private DataGenerator() {
     }
@@ -73,10 +63,10 @@ public class DataGenerator {
         private Registration() {
         }
 
-        public static UserInfo generateUser(String locale) {
+        public static ru.netology.data.DataGenerator.UserInfo generateUser(String locale) {
             // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
             // generateName(locale), generatePhone(locale)
-            val user = new UserInfo(generateCity(locale), generateName(locale), generatePhone(locale));
+            val user = new ru.netology.data.DataGenerator.UserInfo(generateCity(locale), generateName(locale), generatePhone(locale));
             return user;
         }
     }
